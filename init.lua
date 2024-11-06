@@ -172,6 +172,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', ':q!<Cr>', { desc = '[Q]uit' })
 vim.keymap.set('n', '<leader>ww', ':w!<Cr>', { desc = '[W]rite' })
 
+-- Set split horizontal/vertical
+vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split [V]ertical' })
+vim.keymap.set('n', '<leader>sz', '<C-w>s', { desc = 'Split Hori[z]ontal' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -352,13 +356,13 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode',          mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
+        { '<leader>s', group = '[S]earch/[S]plit' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>h', group = 'Git [H]unk',      mode = { 'n', 'v' } },
       },
     },
   },
