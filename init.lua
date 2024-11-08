@@ -197,11 +197,9 @@ vim.keymap.set('n', '<leader>rl', ':s/<<C-r><C-w>>//g<Left><Left>', { desc = 'Re
 vim.keymap.set('n', '<leader>rf', ':%s/<<C-r><C-w>>//g<Left><Left>', { desc = 'Rename in [F]ile' })
 
 -- Neotree keymaps
-vim.keymap.set('n', '<leader>w/', ':Neotree toggle current reveal_force_cwd<cr>',
-  { desc = '[/] toggle current (Neotree)' })
+vim.keymap.set('n', '<leader>w/', ':Neotree toggle current reveal_force_cwd<cr>', { desc = '[/] toggle current (Neotree)' })
 vim.keymap.set('n', '<leader>wr', ':Neotree toggle reveal<cr>', { desc = 'Toggle [R]eveal (Neotree)' })
-vim.keymap.set('n', '<leader>wd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>',
-  { desc = '[D] float reveal file (Neotree)' })
+vim.keymap.set('n', '<leader>wd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>', { desc = '[D] float reveal file (Neotree)' })
 vim.keymap.set('n', '<leader>wb', ':Neotree toggle show buffers right<cr>', { desc = 'Toggle [B]uffers (Neotree)' })
 vim.keymap.set('n', '<leader>gs', ':Neotree float git_status<cr>', { desc = 'Show Git [S]tatus (Neotree)' })
 
@@ -223,6 +221,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Make Shift hl jump to start and end of line
 vim.keymap.set('n', '<S-h>', '^', { desc = 'Jump to start of line' })
 vim.keymap.set('n', '<S-l>', '$', { desc = 'Jump to end of line' })
+vim.keymap.set('n', '<S-k>', 'i<CR><Esc>', { desc = 'Jump to end of line' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -278,7 +277,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- needed for nvim-dap
-  { "nvim-neotest/nvim-nio" },
+  { 'nvim-neotest/nvim-nio' },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following lua:
@@ -313,7 +312,7 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -356,13 +355,13 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode',          mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch/[S]plit' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk',      mode = { 'n', 'v' } },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
   },
@@ -396,7 +395,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -493,7 +492,7 @@ require('lazy').setup({
     },
   },
 
-  { 'Bilal2453/luvit-meta',     lazy = true },
+  { 'Bilal2453/luvit-meta', lazy = true },
 
   {
     -- Main LSP Configuration
@@ -506,7 +505,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -825,11 +824,11 @@ require('lazy').setup({
     opts = {
       transparent = true,
       styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      }
+        sidebars = 'transparent',
+        floats = 'transparent',
+      },
     },
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     init = function()
       -- Load the colorscheme here.
@@ -924,7 +923,6 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
