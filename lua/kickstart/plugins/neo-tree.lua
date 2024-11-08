@@ -21,5 +21,8 @@ return {
         },
       },
     },
+    filtered_items = {
+      hide_dotfiles = false,
+    },
   },
 }
