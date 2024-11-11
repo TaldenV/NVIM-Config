@@ -20,9 +20,9 @@ return {
           ['\\'] = 'close_window',
         },
       },
-    },
-    filtered_items = {
-      hide_dotfiles = false,
+      filtered_items = {
+        hide_dotfiles = false,
+      },
     },
   },
 }
