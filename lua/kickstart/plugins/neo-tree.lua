@@ -21,7 +21,12 @@ return {
         },
       },
       filtered_items = {
+        visible = true,
+        hide_hidden = false,
         hide_dotfiles = false,
+        hide_by_name = {
+          'node_modules',
+        },
       },
     },
   },
